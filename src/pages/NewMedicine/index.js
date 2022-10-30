@@ -7,11 +7,13 @@ import styles from "./style";
 export default function NewMedicine({ navigation }, props) {
 
   const [description, setDescription] = useState(null);
+  const [quantity, setQuantity] = useState(null);
 
   function addMedicine() {
     database.collection('Medicines').add({
       description: description,
-      status: false
+      status: false,
+      quantity: quantity
     })
     navigation.navigate("Medicines");
   }
@@ -23,6 +25,13 @@ export default function NewMedicine({ navigation }, props) {
         placeholder="Ex: Paracetamol"
         onChangeText={setDescription}
         value={description}
+      />
+      <TextInput
+        style={styles.input}
+        keyboardType='numeric'
+        placeholder="Ex: 100"
+        onChangeText={setQuantity}
+        value={quantity}
       />
       <TouchableOpacity
         style={styles.button}

@@ -15,9 +15,21 @@ const styles = StyleSheet.create({
   deleteMedicine: {
     justifyContent: "center",
     paddingLeft: 15,
+    paddingRight: 15,
   },
   DescriptionMedicine: {
-    width: "75%",
+    width: "50%",
+    alignContent: "flex-start",
+    backgroundColor: "#f5f5f5cf",
+    padding: 12,
+    paddingHorizontal: 20,
+    borderRadius: 50,
+    marginBottom: 5,
+    marginRight: 15,
+    color: "#282b2db5",
+  },
+  quantytyMedicine: {
+    width: "25%",
     alignContent: "flex-start",
     backgroundColor: "#f5f5f5cf",
     padding: 12,

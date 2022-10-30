@@ -6,11 +6,13 @@ import styles from "./style"
 
 export default function Details({ navigation, route }) {
   const [descriptionEdit, setDescriptionEdit] = useState(route.params.description)
-  const idTask = route.params.id
+  const [quantityEdit, setQuantityEdit] = useState(route.params.quantity)
+  const idMedicine = route.params.id
 
-  function editTask(description, id) {
+  function editMedicine(description, quantity, id) {
     database.collection("Medicines").doc(id).update({
       description: description,
+      quantity: quantity
     })
     navigation.navigate("Medicines")
   }
@@ -23,10 +25,17 @@ export default function Details({ navigation, route }) {
         onChangeText={setDescriptionEdit}
         value={descriptionEdit}
       />
+      <TextInput
+        style={styles.input}
+        keyboardType='numeric'
+        placeholder="Ex: 100"
+        onChangeText={setQuantityEdit}
+        value={quantityEdit}
+      />
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          editTask(descriptionEdit, idTask)
+          editMedicine(descriptionEdit, quantityEdit, idMedicine)
         }}
       >
         <Text style={styles.iconButton}>

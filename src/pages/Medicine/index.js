@@ -48,12 +48,24 @@ export default function Medicine({ navigation }) {
                   navigation.navigate("Details", {
                     id: item.id,
                     description: item.description,
+                    quantity: item.quantity,
                   })
                 }
               >
                 {item.description}
               </Text>
-
+              <Text
+                style={styles.quantytyMedicine}
+                onPress={() =>
+                  navigation.navigate("Details", {
+                    id: item.id,
+                    description: item.description,
+                    quantity: item.quantity,
+                  })
+                }
+              >
+                {item.quantity}
+              </Text>
             </View>
           )
         }}
