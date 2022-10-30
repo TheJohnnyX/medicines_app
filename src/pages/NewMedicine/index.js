@@ -26,6 +26,7 @@ export default function NewMedicine({ navigation }, props) {
         onChangeText={setDescription}
         value={description}
       />
+      <Text style={styles.label}>Quantity</Text>
       <TextInput
         style={styles.input}
         keyboardType='numeric'

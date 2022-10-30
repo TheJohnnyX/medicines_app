@@ -25,6 +25,7 @@ export default function Details({ navigation, route }) {
         onChangeText={setDescriptionEdit}
         value={descriptionEdit}
       />
+      <Text style={styles.label}>Quantity</Text>
       <TextInput
         style={styles.input}
         keyboardType='numeric'
