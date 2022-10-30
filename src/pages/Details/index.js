@@ -1,7 +1,7 @@
+import database from "../../config/firebase"
 import React, { useState } from "react"
 import { View, Text, TextInput, TouchableOpacity } from "react-native"
 import { FontAwesome } from "@expo/vector-icons";
-import database from "../../config/firebase"
 import styles from "./style"
 
 export default function Details({ navigation, route }) {
@@ -12,7 +12,7 @@ export default function Details({ navigation, route }) {
     database.collection("Medicines").doc(id).update({
       description: description,
     })
-    navigation.navigate("Task")
+    navigation.navigate("Medicines")
   }
   return (
     <View style={styles.container}>

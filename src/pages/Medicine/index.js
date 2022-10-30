@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
 import database from "../../config/firebase.js";
+import React, { useState, useEffect } from "react";
+import { View, Text, TouchableOpacity, FlatList, } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import styles from "./style";
 
-export default function Task({ navigation }) {
-  const [task, setTask] = useState([]);
+export default function Medicine({ navigation }) {
+  const [medicine, setMedicine] = useState([]);
 
-  function deleteTask(id) {
+  function deleteMedicine(id) {
     database.collection("Medicines").doc(id).delete();
   }
 
@@ -22,7 +17,7 @@ export default function Task({ navigation }) {
       query.forEach((doc) => {
         list.push({ ...doc.data(), id: doc.id });
       });
-      setTask(list);
+      setMedicine(list);
     });
   }, []);
 
@@ -30,14 +25,14 @@ export default function Task({ navigation }) {
     <View style={styles.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
-        data={task}
+        data={medicine}
         renderItem={({ item }) => {
           return (
-            <View style={styles.Tasks}>
+            <View style={styles.Medicines}>
               <TouchableOpacity
-                style={styles.deleteTask}
+                style={styles.deleteMedicine}
                 onPress={() => {
-                  deleteTask(item.id)
+                  deleteMedicine(item.id)
                 }}
               >
                 <FontAwesome
@@ -48,7 +43,7 @@ export default function Task({ navigation }) {
                 </FontAwesome>
               </TouchableOpacity>
               <Text
-                style={styles.DescriptionTask}
+                style={styles.DescriptionMedicine}
                 onPress={() =>
                   navigation.navigate("Details", {
                     id: item.id,
@@ -65,7 +60,7 @@ export default function Task({ navigation }) {
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("New Task")}
+        onPress={() => navigation.navigate("New medicine")}
       >
         <Text style={styles.iconButton}>+</Text>
       </TouchableOpacity>

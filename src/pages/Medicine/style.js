@@ -6,17 +6,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingTop: 20
   },
-  Tasks: {
+  Medicines: {
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 5
   },
-  deleteTask: {
+  deleteMedicine: {
     justifyContent: "center",
     paddingLeft: 15,
   },
-  DescriptionTask: {
+  DescriptionMedicine: {
     width: "75%",
     alignContent: "flex-start",
     backgroundColor: "#f5f5f5cf",
