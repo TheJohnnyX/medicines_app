@@ -12,7 +12,6 @@ export default function NewMedicine({ navigation }, props) {
   function addMedicine() {
     database.collection('Medicines').add({
       description: description,
-      status: false,
       quantity: quantity
     })
     navigation.navigate("Medicines");

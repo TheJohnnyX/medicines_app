@@ -42,30 +42,20 @@ export default function Medicine({ navigation }) {
                 >
                 </FontAwesome>
               </TouchableOpacity>
-              <Text
-                style={styles.DescriptionMedicine}
-                onPress={() =>
-                  navigation.navigate("Details", {
-                    id: item.id,
-                    description: item.description,
-                    quantity: item.quantity,
-                  })
-                }
-              >
-                {item.description}
-              </Text>
-              <Text
-                style={styles.quantytyMedicine}
-                onPress={() =>
-                  navigation.navigate("Details", {
-                    id: item.id,
-                    description: item.description,
-                    quantity: item.quantity,
-                  })
-                }
-              >
-                {item.quantity}
-              </Text>
+              <View style={{ flex: 1 }}>
+                <TouchableOpacity style={styles.rowMedicine}
+                  onPress={() =>
+                    navigation.navigate("Details", {
+                      id: item.id,
+                      description: item.description,
+                      quantity: item.quantity,
+                    })
+                  }
+                >
+                  <Text style={{ flex: 1, paddingRight: 10 }}>{item.description}</Text>
+                  <Text style={{ textAlignVertical: 'center' }}>{item.quantity}</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           )
         }}
@@ -74,7 +64,14 @@ export default function Medicine({ navigation }) {
         style={styles.button}
         onPress={() => navigation.navigate("New medicine")}
       >
-        <Text style={styles.iconButton}>+</Text>
+        <Text style={styles.iconButton}>
+          <FontAwesome
+            name="plus"
+            size={20}
+            color="white"
+          >
+          </FontAwesome>
+        </Text>
       </TouchableOpacity>
     </View>
   )
